@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Practica5.Models.ViewModels.InformacionViewModel>
+@{ Layout = "_Layout"; }
+
+@foreach (var especie in Model)
+{
+    <h1>@especie.Nombre</h1>
+
+    <ul class="especies">
+        @foreach (var anim in especie.Especies)
+        {
+            <li>
+                <div>
+                    <img src="~/especies/@(anim.Id).jpg">
+                </div>
+                <h2>@anim.Especie</h2>
+                <p><label>Habitat: </label>@anim.Habitat</p>
+                <p><label>Peso: </label>@anim.Peso</p>
+                <p><label>Tamaño: </label>@anim.Tamaño</p>
+                <p>@anim.Observaciones</p>
+            </li>
+        }
+    </ul>
+}
+
+
+

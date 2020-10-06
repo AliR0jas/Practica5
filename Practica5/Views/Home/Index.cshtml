@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Practica5.Models.Clase>
+@{
+    Layout = "_Layout";
+}
+
+<div class="slides">
+    @{ Random r = new Random();
+        var imagen = r.Next(1, 6);
+        <img src="images/carousel@(imagen).jpg">
+    }
+</div>
+
+<h1>Clasificación de los vertebrados</h1>
+
+<div class="clases">
+    @foreach (var animal in Model)
+    {
+        <div>
+            <a href="~/Especies/@(animal.Nombre)">
+                <img src="~/clases/@(animal.Id).jpg">
+                <h1>@animal.Nombre</h1>
+                <p>@animal.Descripcion</p>
+            </a>
+        </div>
+    }
+
+</div>
+
+
